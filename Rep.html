@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unity Ads</title>
+    <script src="https://webviewads.unityads.unity3d.com/webviews/index.js"></script>
+    <script>
+        var unityAds = {
+            gameId: "5814193",  // Replace with your Unity Game ID
+            adUnitId: "InterstitialAdUnit",  // Replace with your Interstitial Ad Unit ID
+            show: function() {
+                if (typeof unityads !== "undefined") {
+                    unityads.show(this.adUnitId);
+                }
+            }
+        };
+
+        // Auto-play ad when Unity Ads SDK is ready
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(unityAds.show, 1000); // Delay 1 second to ensure SDK is loaded
+        });
+
+        // Notify Android app when ad is done
+        setTimeout(function() {
+            window.location.href = "myapp://resume-videos"; // Custom URI to return to videos
+        }, 6000); // Adjust based on ad length
+    </script>
+</head>
+<body>
+    <h1>Unity Ad Loading...</h1>
+</body>
+</html>

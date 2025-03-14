@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Ads</title>
+    <script src="https://webviewads.unityads.unity3d.com/webviews.html"></script>
+    <script>
+        var unityAds = {
+            gameId: "5814193",  // Replace with your Unity Game ID
+            adUnitId: "InterstitialAdUnit",  // Replace with your Interstitial Ad Unit ID
+            show: function() {
+                if (typeof unityads !== "undefined") {
+                    unityads.show(this.adUnitId);
+                }
+            }
+        };
+
+        // Auto-play Unity ad when page loads
+        window.onload = function() {
+            unityAds.show();
+        };
+
+        // Notify Android app when ad finishes
+        setTimeout(function() {
+            window.location.href = "myapp://resume-videos"; // Custom URI for Android app
+        }, 5000); // Adjust delay based on ad length
+    </script>
+</head>
+<body>
+    <h1>Unity Ad Loading...</h1>
+</body>
+</html>
+
